@@ -41,7 +41,7 @@ const Sidebar = ({ isSidebarVisible, closeSidebar }) => {
                             {isOpen ? <PanelRightOpen /> : <PanelLeftOpen />}
                         </button>
 
-                        <RxCross2 className='text-xl font-extrabold hover:text-red-700 cursor-pointer md:hidden' onClick={closeSidebar}/>
+                        <RxCross2 className={` ${isDarkMode ? 'text-[#FFFF]' : 'text-[#000000]'} text-xl font-extrabold hover:text-red-700 cursor-pointer md:hidden`} onClick={closeSidebar}/>
                     </div>
                     <ul className='flex-1 mt-10 space-y-4'>
                         <SidebarItem icon={dashboardLogo} label="Dashboard" isOpen={isOpen} />

@@ -107,7 +107,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="bg-white p-4 w-screen flex justify-between md:hidden">
+        <div className={`${isDarkMode ? "text-[#FFFF] bg-[#0D0D0D]" : "text-[#000000] bg-white"}  p-4 w-screen flex justify-between md:hidden`}>
           <div className="flex items-center gap-3">
             <GiHamburgerMenu
               className="text-xl cursor-pointer"
