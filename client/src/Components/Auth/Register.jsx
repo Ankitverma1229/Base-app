@@ -23,10 +23,10 @@ const Register = ({ switchToLogin }) => {
     };
 
     return (
-        <div className={`w-full flex flex-col items-start justify-center ps-24 ${isDarkMode ? 'text-[#FFFF]' : 'text-[#000000]'}`}>
+        <div className={`w-full flex flex-col md:items-start justify-center px-5 md:ps-24 ${isDarkMode ? 'text-[#FFFF]' : 'text-[#000000]'}`}>
             <h2 className='font-montserrat font-bold text-3xl'>Register</h2>
             <p className='font-lato font-semibold text-xl mt-1 mb-5'>Create a new account</p>
-            <div className='w-[80%] mt-5'>
+            <div className='md:w-[80%] mt-5'>
                 <div className={`${isDarkMode ? 'bg-[#0D0D0D]' : 'bg-white'} rounded-xl shadow-lg w-full p-7`}>
                     <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
                         <div className='flex flex-col gap-2 font-bold text-sm'>
@@ -70,9 +70,9 @@ const Register = ({ switchToLogin }) => {
                         </button>
                     </form>
                 </div>
-                <p className='text-center text-sm mt-10 font-lato text-[#858585]'>
+                <p className='text-center text-xl md:text-sm mt-10 font-lato text-[#858585]'>
                     Already have an account?
-                    <a href="#" onClick={switchToLogin} className='text-[#346BD4] font-montserrat font-semibold text-sm hover:underline'> Sign in here</a>
+                    <a href="#" onClick={switchToLogin} className='text-[#346BD4] font-montserrat font-semibold  hover:underline'><br className='md:hidden'></br> Sign in here</a>
                 </p>
             </div>
         </div>

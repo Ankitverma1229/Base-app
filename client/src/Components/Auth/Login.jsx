@@ -54,7 +54,7 @@ const Login = ({ switchToRegister }) => {
                                 type="email"
                                 id="email"
                                 placeholder='Enter your email'
-                                className='bg-[#F5F5F5] p-3 text-[#000000] rounded-md focus:outline-none focus:ring-2 focus:ring-[#605BFF] transition'
+                                className={`${isDarkMode ? 'bg-[#1e1e1efc]' : 'bg-[#F5F5F5]'} p-3  rounded-md focus:outline-none focus:ring-2 focus:ring-[#605BFF] transition`}
                                 required
                                 onChange={handleChange}
                                 value={formData.email}
@@ -66,7 +66,7 @@ const Login = ({ switchToRegister }) => {
                                 type="password"
                                 id="password"
                                 placeholder='Enter your password'
-                                className='bg-[#F5F5F5] p-3 text-[#000000] rounded-md focus:outline-none focus:ring-2 focus:ring-[#605BFF] transition'
+                                className={`${isDarkMode ? 'bg-[#1e1e1efc]' : 'bg-[#F5F5F5]'} p-3  rounded-md focus:outline-none focus:ring-2 focus:ring-[#605BFF] transition`}
                                 required
                                 onChange={handleChange}
                                 value={formData.password}
