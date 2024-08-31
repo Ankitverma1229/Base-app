@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<AuthPage />} />
         <Route path="*" element={<Error />} />
       </Routes>
-      <div className="absolute top-20 right-0 md:top-8 md:right-32">
+      <div className="absolute top-24 right-0 md:top-8 md:right-32">
         <ToggleButton />
       </div>
     </div>

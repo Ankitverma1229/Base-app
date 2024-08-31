@@ -44,7 +44,7 @@ const AuthPage = () => {
           </div>
         </div>
       </div>
-      <div className='flex flex-col w-full md:w-1/2 md:mb-20 md:my-24'>
+      <div className='flex min-h-screen flex-col w-full md:w-1/2 md:mb-20 md:my-24'>
         <div className='bg-[#605BFF] h-16 md:hidden flex items-center gap-3 px-5 py-2 mb-5'>
           <div className='h-9 w-9 '>
             <img src={baseLogoSm} alt="Base-Logo" className='h-full w-full' />

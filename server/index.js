@@ -31,6 +31,11 @@ app.use(
   })
 );
 
+const isProduction = process.env.NODE_ENV === "production";
+const baseURL = isProduction
+  ? "http://base-app-kxic.onrender.com"
+  : `http://localhost:${PORT}`;
+
 app.use(express.json());
 
 app.use(
@@ -57,7 +62,7 @@ passport.use(
     {
       clientID: clientId,
       clientSecret: clientSecret,
-      callbackURL: "/auth/google/callback",
+      callbackURL: `${baseURL}/auth/google/callback`,
       scope: ["profile", "email"],
     },
 
