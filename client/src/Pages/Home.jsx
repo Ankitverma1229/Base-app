@@ -130,7 +130,11 @@ const Home = () => {
           <div className="flex items-center gap-3">
             <IoNotificationsOutline className="text-2xl cursor-pointer" />
             <img
-              src={userDetails.image || profilePic}
+              src={
+                userDetails && userDetails.image
+                  ? userDetails.image
+                  : profilePic
+              }
               alt="User Profile"
               className="h-10 w-10 rounded-full border border-gray-200 cursor-pointer"
             />
