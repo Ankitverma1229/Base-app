@@ -76,12 +76,15 @@ const Home = () => {
   };
 
   const toggleSidebar = () => {
-    setIsSidebarVisible(!isSidebarVisible); // Toggle sidebar visibility
+    setIsSidebarVisible(!isSidebarVisible);
   };
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar isSidebarVisible={isSidebarVisible} closeSidebar={toggleSidebar}/>
+      <Sidebar
+        isSidebarVisible={isSidebarVisible}
+        closeSidebar={toggleSidebar}
+      />
 
       <div
         className={`md:flex-1 flex flex-col ${
@@ -93,7 +96,11 @@ const Home = () => {
           <div className="flex items-center gap-7">
             <IoNotificationsOutline className="text-2xl cursor-pointer" />
             <img
-              src={userDetails.image || profilePic}
+              src={
+                userDetails && userDetails.image
+                  ? userDetails.image
+                  : profilePic
+              }
               alt="User Profile"
               className="h-10 w-10 rounded-full border border-gray-200 cursor-pointer"
             />
@@ -102,7 +109,10 @@ const Home = () => {
 
         <div className="bg-white p-4 flex justify-between md:hidden">
           <div className="flex items-center gap-3">
-            <GiHamburgerMenu className="text-xl cursor-pointer" onClick={toggleSidebar} />
+            <GiHamburgerMenu
+              className="text-xl cursor-pointer"
+              onClick={toggleSidebar}
+            />
             <div className="flex items-center gap-2">
               <div className="h-6 w-6">
                 <img src={baseLogo} alt="Base-Logo" className="h-full w-full" />
