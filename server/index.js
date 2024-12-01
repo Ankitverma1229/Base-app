@@ -4,6 +4,7 @@ import cors from "cors";
 import fileUpload from "express-fileupload";
 import session from "express-session";
 import passport from "passport";
+import axios from "axios"; // Import for self-pinging
 import { Strategy as OAuth2Strategy } from "passport-google-oauth2";
 import { connectDb } from "./config/connectDb.js";
 import { connectCloudinary } from "./config/cloudinary.js";
@@ -53,7 +54,7 @@ app.use(
   })
 );
 
-//setup passport
+// Setup passport
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -65,7 +66,6 @@ passport.use(
       callbackURL: `${baseURL}/auth/google/callback`,
       scope: ["profile", "email"],
     },
-
     async (accessToken, refreshToken, profile, done) => {
       try {
         let user = await userdb.findOne({ googleId: profile.id });
@@ -76,7 +76,6 @@ passport.use(
             email: profile.emails[0].value,
             image: profile.photos[0].value,
           });
-
           await user.save();
         }
         return done(null, user);
@@ -117,4 +116,14 @@ app.use("/api/auth", authRouter);
 
 app.listen(PORT, () => {
   console.log(`Server started at ${PORT}`);
+
+  // Self-ping mechanism
+  setInterval(async () => {
+    try {
+      const response = await axios.get(`${baseURL}`);
+      console.log("Self-ping successful:", response.data);
+    } catch (error) {
+      console.error("Error during self-ping:", error.message);
+    }
+  }, 300000); // 5 minutes in milliseconds
 });
