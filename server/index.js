@@ -125,5 +125,5 @@ app.listen(PORT, () => {
     } catch (error) {
       console.error("Error during self-ping:", error.message);
     }
-  }, 300000); // 5 minutes in milliseconds
+  }, 600000); // 10 minutes in milliseconds
 });
